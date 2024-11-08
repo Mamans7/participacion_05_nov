@@ -1,0 +1,27 @@
+{% include 'header.html' %}
+
+<h2>Listado de PRODUCTOS</h2>
+
+<table class="table table-hover ">
+    <thead>
+        <tr>
+            <th scope="col ">ID</th>
+            <th scope="col ">DESCRIPCIÓN</th>
+            <th scope="col ">CANTIDAD</th>
+            <th scope="col ">PRECIO</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in lista %}
+        <tr>
+            <th scope="row">{{item['id']}}</th>
+            <td>{{item['descripcion']}}</td>
+            <td>{{item['cantidad']}} Unidades</td>
+            <td>{{item['precio']}} $</td>
+            <td><a href="/productos/editar/{{ item['id']}}" class="btn btn-success">Editar</a></td>
+            <td><a href="/productos/eliminar/{{ item['id'] }}" onclick="return(confirm('Esta seguro de Eliminar?'))" class="btn btn-danger">Eliminar</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('crear') }}" class="btn btn-primary">Nuevo</a> {% include 'footer.html' %}

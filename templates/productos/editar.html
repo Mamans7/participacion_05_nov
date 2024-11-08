@@ -1,0 +1,24 @@
+{% include 'header.html' %}
+
+
+<h3>EDITANDO los PRODUCTOS</h3>
+
+<form action="{{url_for('actualizar_prod')}}" method="post">
+    <div class="mb-3">
+        <input type="hidden" name="id" value="{{ producto['id'] }}">
+        <label for="descripcion" class="form-label">Descripción</label>
+        <input type="text" class="form-control" id="descripcion" name="descripcion" value="{{producto['descripcion']}}">
+    </div>
+    <div class="mb-3">
+        <label for="cantidad" class="form-label">Cantidad</label>
+        <input type="number" class="form-control" id="cantidad" name="cantidad" value="{{producto['cantidad']}}">
+    </div>
+    <div class="mb-3">
+        <label for="precio" class="form-label">Precio</label>
+        <input type="text" class="form-control" id="precio" name="precio" value="{{producto['precio']}}">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+{% include 'footer.html' %}
